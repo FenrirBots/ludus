@@ -8,12 +8,16 @@
 void HookIsDebuggerPresent(
 	)
 {
-	LPVOID tmp;
-	LPVOID pIsDebuggerPresent;
-	// Check the value of this before calling MH_CreateHook
-	pIsDebuggerPresent = GetProcAddress(GetModuleHandleA("kernel32.dll"), "IsDebuggerPresent");
+	LPVOID tmp = NULL;
+	LPVOID address = NULL;
+	
+	address = GetProcAddress(GetModuleHandleA("kernel32.dll"), "IsDebuggerPresent");
+	if (address == NULL)
+	{
+		MessageBox(NULL, "GetProcAddress returned NULL", "ERROR", MB_OK);
+	}
 
-	if (MH_OK == MH_CreateHook(pIsDebuggerPresent, fIsDebuggerPresent, tmp))
+	if (MH_OK == MH_CreateHook(address, fIsDebuggerPresent, tmp))
 	{
 		return;
 	}
@@ -24,6 +28,21 @@ void HookIsDebuggerPresent(
 void HookCheckRemoteDebuggerPresent(
 	)
 {
+	LPVOID tmp = NULL;
+	LPVOID address = NULL;
+	
+	address = GetProcAddress(GetModuleHandleA("kernel32.dll"), "CheckRemoteDebuggerPresent");
+	if (address == NULL)
+	{
+		MessageBox(NULL, "GetProcAddress returned NULL", "ERROR", MB_OK);
+	}
+
+	if (MH_OK == MH_CreateHook(address, fCheckRemoteDebuggerPresent, tmp))
+	{
+		return;
+	}
+
+	MessageBox(NULL, "Failed to hook CheckRemoteDebuggerPresent", "ERROR", MB_OK);
 }
 
 void HookProcessFileName(

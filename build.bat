@@ -11,6 +11,7 @@ gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\minhook\buffer.
 gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\minhook\hook.c -o %WORKSPACE_DIR%\build\obj\module\hook.o
 gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\minhook\trampoline.c -o %WORKSPACE_DIR%\build\obj\module\trampoline.o
 gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\patches\isdebuggerpresent.c -o %WORKSPACE_DIR%\build\obj\module\isdebuggerpresent.o
+gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\patches\checkremotedebuggerpresent.c -o %WORKSPACE_DIR%\build\obj\module\checkremotedebuggerpresent.o
 gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\threads\startup.c -o %WORKSPACE_DIR%\build\obj\module\startup.o
 gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\threads\cleanup.c -o %WORKSPACE_DIR%\build\obj\module\cleanup.o
 gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\entrypoint.c -o %WORKSPACE_DIR%\build\obj\module\entrypoint.o
