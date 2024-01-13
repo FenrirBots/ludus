@@ -12,8 +12,10 @@ gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\minhook\hook.c 
 gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\minhook\trampoline.c -o %WORKSPACE_DIR%\build\obj\module\trampoline.o
 gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\patches\isdebuggerpresent.c -o %WORKSPACE_DIR%\build\obj\module\isdebuggerpresent.o
 gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\patches\checkremotedebuggerpresent.c -o %WORKSPACE_DIR%\build\obj\module\checkremotedebuggerpresent.o
+gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\patches\processfilename.c -o %WORKSPACE_DIR%\build\obj\module\proceessfilename.o
 gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\threads\startup.c -o %WORKSPACE_DIR%\build\obj\module\startup.o
 gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\threads\cleanup.c -o %WORKSPACE_DIR%\build\obj\module\cleanup.o
+gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\utils\log.c -o %WORKSPACE_DIR%\build\obj\module\log.o
 gcc.exe -c -std=c99 -I%WORKSPACE_DIR% %WORKSPACE_DIR%\src\module\entrypoint.c -o %WORKSPACE_DIR%\build\obj\module\entrypoint.o
 gcc.exe --shared --static %WORKSPACE_DIR%\build\obj\module\*.o -o %WORKSPACE_DIR%\build\bin\module.dll
 cd %WORKSPACE_DIR%
